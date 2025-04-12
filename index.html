@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Proyecciones del S&P Merval con análisis simple y datos reales. Subas, bajas o lateral, todo claro para vos.">
+    <meta name="keywords" content="Merval, proyecciones Merval, análisis mercado Argentina, inversiones">
+    <title>ProyectM - S&P Merval</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Roboto', sans-serif; background: #fff; color: #333; }
+        header { position: fixed; top: 0; width: 100%; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; z-index: 1000; }
+        .logo { font-size: 1.5em; font-weight: bold; }
+        .menu-btn { font-size: 1.5em; cursor: pointer; }
+        .follow-x { font-size: 0.9em; color: #007bff; text-decoration: none; }
+        .follow-x:hover { text-decoration: underline; }
+        nav { position: fixed; top: 0; right: -250px; width: 250px; height: 100%; background: #f5f5f5; transition: right 0.3s; }
+        nav.open { right: 0; }
+        nav ul { list-style: none; padding: 60px 20px; }
+        nav li { margin: 20px 0; }
+        nav a { color: #333; text-decoration: none; font-size: 1.1em; }
+        nav a:hover { color: #007bff; }
+        .content-wrapper { margin-top: 60px; padding: 20px; max-width: 800px; margin-left: auto; margin-right: auto; }
+        h1 { font-size: 1.8em; margin-bottom: 20px; }
+        .tabs { display: flex; flex-wrap: wrap; margin-bottom: 20px; }
+        .tab { padding: 10px 15px; cursor: pointer; background: #eee; margin: 0 5px 5px 0; border-radius: 5px; transition: background 0.2s; }
+        .tab:hover { background: #ddd; }
+        .tab.active { background: #007bff; color: #fff; }
+        .content { display: none; }
+        .content.active { display: block; }
+        .probabilidades { display: flex; width: 100%; height: 40px; margin-bottom: 10px; overflow: hidden; }
+        .alcista { background: #00cc00; min-width: 60px; }
+        .lateral { background: #ff9800; min-width: 40px; }
+        .bajista { background: #f44336; min-width: 30px; }
+        .escenario { text-align: center; color: #fff; line-height: 40px; font-weight: bold; }
+        .leyenda { display: flex; justify-content: space-around; margin-bottom: 20px; }
+        .leyenda div { display: flex; align-items: center; font-size: 0.9em; }
+        .cuadrado { width: 15px; height: 15px; margin-right: 5px; }
+        .sintesis, .efectividad, .aviso { margin-bottom: 20px; font-size: 1.1em; line-height: 1.4; }
+        .analisis-completo { display: none; background: #f9f9f9; padding: 15px; border: 1px solid #ddd; border-radius: 5px; margin-top: 10px; }
+        .toggle { cursor: pointer; color: #007bff; text-decoration: underline; font-weight: bold; }
+        .toggle:hover { color: #0056b3; }
+        .util-btn { padding: 10px; background: #eee; border: none; border-radius: 5px; margin: 5px; cursor: pointer; }
+        .util-btn:hover { background: #ddd; }
+        sup { font-size: 0.7em; }
+        @media (max-width: 600px) { .content-wrapper { padding: 10px; } .tab { font-size: 0.9em; } }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">ProyectM</div>
+        <div>
+            <a href="https://x.com" class="follow-x">Seguinos en X</a>
+            <span class="menu-btn">☰</span>
+        </div>
+    </header>
+    <nav id="menu">
+        <ul>
+            <li><a href="que-es.html">¿Qué es ProyectM?</a></li>
+            <li><a href="como-usarlo.html">Cómo usarlo</a></li>
+            <li><a href="indicadores.html">Indicadores básicos</a></li>
+            <li><a href="sobre.html">Sobre el proyecto</a></li>
+            <li><a href="legal.html">Legal</a></li>
+        </ul>
+    </nav>
+    <div class="content-wrapper">
+        <h1>ProyectM - S&P Merval</h1>
+        <div class="tabs">
+            <div class="tab active" onclick="showTab('dia')">Día</div>
+            <div class="tab" onclick="showTab('3d')">3D</div>
+            <div class="tab" onclick="showTab('1s')">1S</div>
+            <div class="tab" onclick="showTab('1m')">1M</div>
+            <div class="tab" onclick="showTab('3m')">3M</div>
+            <div class="tab" onclick="showTab('6m')">6M</div>
+            <div class="tab" onclick="showTab('1y')">1Y</div>
+        </div>
+        <div id="contents">
+            <!-- Día -->
+            <div id="dia" class="content active">
+                <h2>Proyección 14 de abril 2025</h2>
+                <div class="probabilidades">
+                    <div class="alcista escenario" style="flex: 35">35<sup>%</sup></div>
+                    <div class="lateral escenario" style="flex: 45">45<sup>%</sup></div>
+                    <div class="bajista escenario" style="flex: 20">20<sup>%</sup></div>
+                </div>
+                <div class="leyenda">
+                    <div><span class="cuadrado" style="background: #00cc00;"></span>Sube</div>
+                    <div><span class="cuadrado" style="background: #ff9800;"></span>Se mantiene</div>
+                    <div><span class="cuadrado" style="background: #f44336;"></span>Baja</div>
+                </div>
+                <div class="sintesis">
+                    El 14 podría consolidar en 2,220,000-2,280,000 tras +6.50%, o subir a 2,320,000 (RSI neutral), o caer a 2,180,000 (dólares mixtos).
+                </div>
+                <div class="efectividad">
+                    <strong>Efectividad 11/4:</strong> Proyectado 2,090,000-2,120,000 (40%) vs. 2,248,802 real. Fallo (0%).<br>
+                    <strong>Efectividad acumulada:</strong> 68.81% (1/1/2025 al 11/4/2025, 101 días).
+                </div>
+                <div class="aviso">Datos al 11/4, volumen sin datos.</div>
+                <div class="toggle" onclick="toggleSection('analisis-dia')">Mostrar análisis completo</div>
+                <div id="analisis-dia" class="analisis-completo">
+                    <p><strong>Rangos:</strong><br>
+                    - Alcista (35%): 2,280,000-2,320,000.<br>
+                    - Lateral (45%): 2,220,000-2,280,000.<br>
+                    - Bajista (20%): 2,180,000-2,220,000.</p>
+                    <p><strong>AT:</strong><br>
+                    - MM200: 1,940,000.<br>
+                    - MM50: 2,080,000.<br>
+                    - RSI: 50.<br>
+                    - MACD: -40,000, señal -35,000.<br>
+                    - Bollinger: Media 2,140,000, +2σ 2,350,000, -2σ 1,930,000.<br>
+                    - Fibonacci: 61.8% 2,178,000.</p>
+                    <p><strong>AF:</strong> CCL $1,343.41 (-1.34%), Oficial $1,097.50 (+0.07%), MEP $1,332.59 (-2.19%), Blue $1,375.00 (+0.73%), Riesgo País 874 (-2.78%), inflación marzo 3.7%.</p>
+                </div>
+                <div><button class="util-btn">Sí</button><button class="util-btn">No</button></div>
+            </div>
+
+            <!-- 3 Días -->
+            <div id="3d" class="content">
+                <h2>Proyección 3 Días</h2>
+                <div class="probabilidades">
+                    <div class="alcista escenario" style="flex: 40">40<sup>%</sup></div>
+                    <div class="lateral escenario" style="flex: 40">40<sup>%</sup></div>
+                    <div class="bajista escenario" style="flex: 20">20<sup>%</sup></div>
+                </div>
+                <div class="leyenda">
+                    <div><span class="cuadrado" style="background: #00cc00;"></span>Sube</div>
+                    <div><span class="cuadrado" style="background: #ff9800;"></span>Se mantiene</div>
+                    <div><span class="cuadrado" style="background: #f44336;"></span>Baja</div>
+                </div>
+                <div class="sintesis">
+                    En 3 días podría subir a 2,350,000 (impulso corto) o consolidar en 2,220,000-2,300,000, o caer a 2,180,000.
+                </div>
+                <div class="aviso">Basado en 2020-2025 + 11/4.</div>
+                <div class="toggle" onclick="toggleSection('analisis-3d')">Mostrar análisis completo</div>
+                <div id="analisis-3d" class="analisis-completo">
+                    <p><strong>Rangos:</strong><br>
+                    - Alcista (40%): 2,300,000-2,350,000.<br>
+                    - Lateral (40%): 2,220,000-2,300,000.<br>
+                    - Bajista (20%): 2,180,000-2,220,000.</p>
+                    <p><strong>AT:</strong><br>
+                    - MM50: 2,080,000.<br>
+                    - RSI: ~50 proyectado.<br>
+                    - MACD: Cerca de cruce alcista.<br>
+                    - Bollinger: +2σ 2,350,000.</p>
+                    <p><strong>AF:</strong> CCL ~$1,340, Oficial ~$1,100, MEP ~$1,330, Blue ~$1,380, Riesgo País ~870, inflación marzo 3.7%.</p>
+                </div>
+            </div>
+
+            <!-- 1 Semana -->
+            <div id="1s" class="content">
+                <h2>Proyección 1 Semana</h2>
+                <div class="probabilidades">
+                    <div class="alcista escenario" style="flex: 45">45<sup>%</sup></div>
+                    <div class="lateral escenario" style="flex: 35">35<sup>%</sup></div>
+                    <div class="bajista escenario" style="flex: 20">20<sup>%</sup></div>
+                </div>
+                <div class="leyenda">
+                    <div><span class="cuadrado" style="background: #00cc00;"></span>Sube</div>
+                    <div><span class="cuadrado" style="background: #ff9800;"></span>Se mantiene</div>
+                    <div><span class="cuadrado" style="background: #f44336;"></span>Baja</div>
+                </div>
+                <div class="sintesis">
+                    En 1 semana podría subir a 2,400,000 (tendencia) o mantenerse en 2,220,000-2,300,000, o caer a 2,150,000.
+                </div>
+                <div class="aviso">Basado en 2020-2025 + 11/4.</div>
+                <div class="toggle" onclick="toggleSection('analisis-1s')">Mostrar análisis completo</div>
+                <div id="analisis-1s" class="analisis-completo">
+                    <p><strong>Rangos:</strong><br>
+                    - Alcista (45%): 2,350,000-2,400,000.<br>
+                    - Lateral (35%): 2,220,000-2,300,000.<br>
+                    - Bajista (20%): 2,150,000-2,200,000.</p>
+                    <p><strong>AT:</strong><br>
+                    - MM50: 2,080,000.<br>
+                    - RSI: ~55 proyectado.<br>
+                    - MACD: Posible cruce alcista.<br>
+                    - Bollinger: +2σ 2,350,000.</p>
+                    <p><strong>AF:</strong> CCL ~$1,350, Oficial ~$1,105, MEP ~$1,340, Blue ~$1,390, Riesgo País ~860, inflación marzo 3.7%.</p>
+                </div>
+            </div>
+
+            <!-- 1 Mes -->
+            <div id="1m" class="content">
+                <h2>Proyección 1 Mes</h2>
+                <div class="probabilidades">
+                    <div class="alcista escenario" style="flex: 50">50<sup>%</sup></div>
+                    <div class="lateral escenario" style="flex: 35">35<sup>%</sup></div>
+                    <div class="bajista escenario" style="flex: 15">15<sup>%</sup></div>
+                </div>
+                <div class="leyenda">
+                    <div><span class="cuadrado" style="background: #00cc00;"></span>Sube</div>
+                    <div><span class="cuadrado" style="background: #ff9800;"></span>Se mantiene</div>
+                    <div><span class="cuadrado" style="background: #f44336;"></span>Baja</div>
+                </div>
+                <div class="sintesis">
+                    En 1 mes podría subir a 2,500,000 (impulso + dólares) o mantenerse en 2,250,000-2,350,000, o caer a 2,150,000.
+                </div>
+                <div class="aviso">Basado en 2020-2025 + 11/4.</div>
+                <div class="toggle" onclick="toggleSection('analisis-1m')">Mostrar análisis completo</div>
+                <div id="analisis-1m" class="analisis-completo">
+                    <p><strong>Rangos:</strong><br>
+                    - Alcista (50%): 2,400,000-2,500,000.<br>
+                    - Lateral (35%): 2,250,000-2,350,000.<br>
+                    - Bajista (15%): 2,150,000-2,200,000.</p>
+                    <p><strong>AT:</strong><br>
+                    - MM50: 2,080,000.<br>
+                    - RSI: ~50 proyectado.<br>
+                    - MACD: Posible cruce alcista.<br>
+                    - Bollinger: +2σ 2,350,000.</p>
+                    <p><strong>AF:</strong> CCL ~$1,380, Oficial ~$1,120, MEP ~$1,360, Blue ~$1,410, Riesgo País ~850, inflación marzo 3.7%.</p>
+                </div>
+            </div>
+
+            <!-- 3 Meses -->
+            <div id="3m" class="content">
+                <h2>Proyección 3 Meses</h2>
+                <div class="probabilidades">
+                    <div class="alcista escenario" style="flex: 55">55<sup>%</sup></div>
+                    <div class="lateral escenario" style="flex: 30">30<sup>%</sup></div>
+                    <div class="bajista escenario" style="flex: 15">15<sup>%</sup></div>
+                </div>
+                <div class="leyenda">
+                    <div><span class="cuadrado" style="background: #00cc00;"></span>Sube</div>
+                    <div><span class="cuadrado" style="background: #ff9800;"></span>Se mantiene</div>
+                    <div><span class="cuadrado" style="background: #f44336;"></span>Baja</div>
+                </div>
+                <div class="sintesis">
+                    En 3 meses podría subir a 2,800,000 (tendencia) o mantenerse en 2,300,000-2,500,000, o caer a 2,100,000.
+                </div>
+                <div class="aviso">Basado en 2020-2025 + 11/4.</div>
+                <div class="toggle" onclick="toggleSection('analisis-3m')">Mostrar análisis completo</div>
+                <div id="analisis-3m" class="analisis-completo">
+                    <p><strong>Rangos:</strong><br>
+                    - Alcista (55%): 2,600,000-2,800,000.<br>
+                    - Lateral (30%): 2,300,000-2,500,000.<br>
+                    - Bajista (15%): 2,100,000-2,200,000.</p>
+                    <p><strong>AT:</strong><br>
+                    - MM200: ~2,000,000.<br>
+                    - RSI: ~60 proyectado.<br>
+                    - MACD: Alcista proyectado.<br>
+                    - Bollinger: +2σ 2,800,000.</p>
+                    <p><strong>AF:</strong> CCL ~$1,450, Oficial ~$1,140, MEP ~$1,430, Blue ~$1,460, Riesgo País ~840, inflación proyectada ~10%.</p>
+                </div>
+            </div>
+
+            <!-- 6 Meses -->
+            <div id="6m" class="content">
+                <h2>Proyección 6 Meses</h2>
+                <div class="probabilidades">
+                    <div class="alcista escenario" style="flex: 55">55<sup>%</sup></div>
+                    <div class="lateral escenario" style="flex: 30">30<sup>%</sup></div>
+                    <div class="bajista escenario" style="flex: 15">15<sup>%</sup></div>
+                </div>
+                <div class="leyenda">
+                    <div><span class="cuadrado" style="background: #00cc00;"></span>Sube</div>
+                    <div><span class="cuadrado" style="background: #ff9800;"></span>Se mantiene</div>
+                    <div><span class="cuadrado" style="background: #f44336;"></span>Baja</div>
+                </div>
+                <div class="sintesis">
+                    En 6 meses podría llegar a 2,900,000 (tendencia + inflación) o quedarse en 2,300,000-2,500,000, o caer a 2,100,000.
+                </div>
+                <div class="aviso">Basado en 2020-2025 + 11/4.</div>
+                <div class="toggle" onclick="toggleSection('analisis-6m')">Mostrar análisis completo</div>
+                <div id="analisis-6m" class="analisis-completo">
+                    <p><strong>Rangos:</strong><br>
+                    - Alcista (55%): 2,700,000-2,900,000.<br>
+                    - Lateral (30%): 2,300,000-2,500,000.<br>
+                    - Bajista (15%): 2,100,000-2,200,000.</p>
+                    <p><strong>AT:</strong><br>
+                    - MM200: ~2,000,000.<br>
+                    - RSI: ~60 proyectado.<br>
+                    - MACD: Alcista proyectado.<br>
+                    - Bollinger: +2σ 2,800,000.</p>
+                    <p><strong>AF:</strong> CCL ~$1,550, Oficial ~$1,170, MEP ~$1,530, Blue ~$1,560, Riesgo País ~830, inflación proyectada ~15%.</p>
+                </div>
+            </div>
+
+            <!-- 1 Año -->
+            <div id="1y" class="content">
+                <h2>Proyección 1 Año</h2>
+                <div class="probabilidades">
+                    <div class="alcista escenario" style="flex: 60">60<sup>%</sup></div>
+                    <div class="lateral escenario" style="flex: 25">25<sup>%</sup></div>
+                    <div class="bajista escenario" style="flex: 15">15<sup>%</sup></div>
+                </div>
+                <div class="leyenda">
+                    <div><span class="cuadrado" style="background: #00cc00;"></span>Sube</div>
+                    <div><span class="cuadrado" style="background: #ff9800;"></span>Se mantiene</div>
+                    <div><span class="cuadrado" style="background: #f44336;"></span>Baja</div>
+                </div>
+                <div class="sintesis">
+                    En 1 año podría llegar a 3,400,000 (inflación proyectada) o quedarse en 2,400,000-2,700,000, o caer a 2,100,000.
+                </div>
+                <div class="aviso">Basado en 2020-2025 + 11/4.</div>
+                <div class="toggle" onclick="toggleSection('analisis-1y')">Mostrar análisis completo</div>
+                <div id="analisis-1y" class="analisis-completo">
+                    <p><strong>Rangos:</strong><br>
+                    - Alcista (60%): 3,100,000-3,400,000.<br>
+                    - Lateral (25%): 2,400,000-2,700,000.<br>
+                    - Bajista (15%): 2,100,000-2,300,000.</p>
+                    <p><strong>AT:</strong><br>
+                    - MM200: ~2,100,000.<br>
+                    - RSI: ~65 proyectado.<br>
+                    - MACD: Alcista sostenido.<br>
+                    - Bollinger: +2σ 3,400,000.</p>
+                    <p><strong>AF:</strong> CCL ~$1,700, Oficial ~$1,230, MEP ~$1,680, Blue ~$1,710, Riesgo País ~820, inflación proyectada ~25%.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            document.querySelector(`[onclick="showTab('${tabId}')"]`).classList.add('active');
+        }
+        function toggleSection(id) {
+            const elem = document.getElementById(id);
+            elem.style.display = elem.style.display === 'block' ? 'none' : 'block';
+        }
+        document.querySelector('.menu-btn').addEventListener('click', () => {
+            document.getElementById('menu').classList.toggle('open');
+        });
+    </script>
+</body>
+</html>

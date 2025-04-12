@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conocé la historia detrás de ProyectM, un proyecto para acercar el S&P Merval a todos con análisis simple.">
+    <meta name="keywords" content="sobre ProyectM, proyecto Merval, análisis mercado Argentina">
+    <title>Sobre el proyecto - ProyectM</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Roboto', sans-serif; background: #fff; color: #333; }
+        header { position: fixed; top: 0; width: 100%; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5em; font-weight: bold; }
+        .menu-btn { font-size: 1.5em; cursor: pointer; }
+        .follow-x { font-size: 0.9em; color: #007bff; text-decoration: none; margin-right: 10px; }
+        .follow-x:hover { text-decoration: underline; }
+        nav { position: fixed; top: 0; right: -250px; width: 250px; height: 100%; background: #f5f5f5; transition: right 0.3s; }
+        nav.open { right: 0; }
+        nav ul { list-style: none; padding: 60px 20px; }
+        nav li { margin: 20px 0; }
+        nav a { color: #333; text-decoration: none; font-size: 1.1em; }
+        nav a:hover { color: #007bff; }
+        .content { margin-top: 60px; padding: 20px; max-width: 800px; margin-left: auto; margin-right: auto; }
+        h1 { font-size: 1.8em; margin-bottom: 20px; }
+        p { font-size: 1.1em; line-height: 1.6; margin-bottom: 20px; }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">ProyectM</div>
+        <div>
+            <a href="https://x.com" class="follow-x">Seguinos en X</a>
+            <span class="menu-btn">☰</span>
+        </div>
+    </header>
+    <nav id="menu">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="que-es.html">¿Qué es ProyectM?</a></li>
+            <li><a href="como-usarlo.html">Cómo usarlo</a></li>
+            <li><a href="indicadores.html">Indicadores básicos</a></li>
+            <li><a href="sobre.html">Sobre el proyecto</a></li>
+            <li><a href="legal.html">Legal</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <h1>Sobre el proyecto</h1>
+        <p><strong>ProyectM</strong> es un sueño que arrancó en 2025 con dos apasionados por los números y el mercado argentino. Queríamos hacer el <strong>S&P Merval</strong> más accesible, sin jerga complicada ni promesas vacías. Por eso creamos este proyecto, que combina análisis técnico (RSI, Bollinger, MACD) con datos fundamentales como los dólares (CCL, MEP, Blue, Oficial), inflación y Riesgo País.</p>
+        <p>Cada día hábil actualizamos proyecciones para el próximo cierre, 3 días, 1 semana, 1 mes, 3 meses, 6 meses y 1 año. No somos asesores financieros, solo compartimos información clara y educativa para que entiendas las tendencias del mercado. Nuestra efectividad acumulada te muestra qué tan precisos vamos siendo, con total transparencia.</p>
+        <p>Seguinos en X para estar al día con proyecciones frescas, análisis del Merval y novedades del mundo financiero argentino. ¡Sumate a <strong>ProyectM</strong> y explorá el mercado con nosotros! #Merval #Argentina</p>
+    </div>
+    <script>
+        document.querySelector('.menu-btn').addEventListener('click', () => {
+            document.getElementById('menu').classList.toggle('open');
+        });
+    </script>
+</body>
+</html>

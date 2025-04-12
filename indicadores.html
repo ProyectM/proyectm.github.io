@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conocé los indicadores básicos que usa ProyectM para proyectar el S&P Merval, explicados para todos.">
+    <meta name="keywords" content="indicadores Merval, RSI inversiones, Bollinger Merval, dólares Argentina">
+    <title>Indicadores básicos - ProyectM</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Roboto', sans-serif; background: #fff; color: #333; }
+        header { position: fixed; top: 0; width: 100%; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5em; font-weight: bold; }
+        .menu-btn { font-size: 1.5em; cursor: pointer; }
+        .follow-x { font-size: 0.9em; color: #007bff; text-decoration: none; margin-right: 10px; }
+        .follow-x:hover { text-decoration: underline; }
+        nav { position: fixed; top: 0; right: -250px; width: 250px; height: 100%; background: #f5f5f5; transition: right 0.3s; }
+        nav.open { right: 0; }
+        nav ul { list-style: none; padding: 60px 20px; }
+        nav li { margin: 20px 0; }
+        nav a { color: #333; text-decoration: none; font-size: 1.1em; }
+        nav a:hover { color: #007bff; }
+        .content { margin-top: 60px; padding: 20px; max-width: 800px; margin-left: auto; margin-right: auto; }
+        h1 { font-size: 1.8em; margin-bottom: 20px; }
+        p { font-size: 1.1em; line-height: 1.6; margin-bottom: 20px; }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">ProyectM</div>
+        <div>
+            <a href="https://x.com" class="follow-x">Seguinos en X</a>
+            <span class="menu-btn">☰</span>
+        </div>
+    </header>
+    <nav id="menu">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="que-es.html">¿Qué es ProyectM?</a></li>
+            <li><a href="como-usarlo.html">Cómo usarlo</a></li>
+            <li><a href="indicadores.html">Indicadores básicos</a></li>
+            <li><a href="sobre.html">Sobre el proyecto</a></li>
+            <li><a href="legal.html">Legal</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <h1>Indicadores básicos</h1>
+        <p>En <strong>ProyectM</strong>, usamos indicadores clave para proyectar el <strong>S&P Merval</strong>, explicados para que cualquiera los entienda. Acá van los principales:</p>
+        <p><strong>RSI (Índice de Fuerza Relativa)</strong>: Mide si el mercado está muy "caliente" (sobrecomprado, arriba de 70) o "frío" (sobrevendido, abajo de 30). Un RSI alto puede avisar una posible baja, y uno bajo, una suba.</p>
+        <p><strong>Bandas de Bollinger</strong>: Son como un mapa de rangos. La media muestra el precio promedio, y las bandas (+2σ y -2σ) indican hasta dónde puede llegar el Merval. Si el precio toca la banda alta, podría corregir.</p>
+        <p><strong>MACD</strong>: Detecta cambios de tendencia. Si la línea MACD cruza la señal hacia arriba, es buena onda; si cruza abajo, cuidado.</p>
+        <p><strong>Dólares (CCL, MEP, Blue, Oficial)</strong>: En Argentina, los dólares mandan. Si el CCL o MEP suben fuerte, el Merval suele seguirlos. El Oficial y Blue dan contexto extra.</p>
+        <p><strong>Riesgo País e inflación</strong>: El Riesgo País mide cuánto confían en Argentina; si baja, el Merval puede subir. La inflación (mensual o esperada) empuja los precios a largo plazo.</p>
+        <p>Combinamos todo para darte escenarios claros: <strong>alcista</strong> (sube), <strong>lateral</strong> (se mantiene) o <strong>bajista</strong> (baja). Conocé el mercado con <strong>ProyectM</strong>. #Merval #Indicadores</p>
+    </div>
+    <script>
+        document.querySelector('.menu-btn').addEventListener('click', () => {
+            document.getElementById('menu').classList.toggle('open');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Términos y condiciones de ProyectM. Información educativa sobre el S&P Merval, no asesoramiento financiero.">
+    <meta name="keywords" content="términos ProyectM, legal Merval, disclaimer inversiones">
+    <title>Legal - ProyectM</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Roboto', sans-serif; background: #fff; color: #333; }
+        header { position: fixed; top: 0; width: 100%; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5em; font-weight: bold; }
+        .menu-btn { font-size: 1.5em; cursor: pointer; }
+        .follow-x { font-size: 0.9em; color: #007bff; text-decoration: none; margin-right: 10px; }
+        .follow-x:hover { text-decoration: underline; }
+        nav { position: fixed; top: 0; right: -250px; width: 250px; height: 100%; background: #f5f5f5; transition: right 0.3s; }
+        nav.open { right: 0; }
+        nav ul { list-style: none; padding: 60px 20px; }
+        nav li { margin: 20px 0; }
+        nav a { color: #333; text-decoration: none; font-size: 1.1em; }
+        nav a:hover { color: #007bff; }
+        .content { margin-top: 60px; padding: 20px; max-width: 800px; margin-left: auto; margin-right: auto; }
+        h1 { font-size: 1.8em; margin-bottom: 20px; }
+        p { font-size: 1.1em; line-height: 1.6; margin-bottom: 20px; }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">ProyectM</div>
+        <div>
+            <a href="https://x.com" class="follow-x">Seguinos en X</a>
+            <span class="menu-btn">☰</span>
+        </div>
+    </header>
+    <nav id="menu">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="que-es.html">¿Qué es ProyectM?</a></li>
+            <li><a href="como-usarlo.html">Cómo usarlo</a></li>
+            <li><a href="indicadores.html">Indicadores básicos</a></li>
+            <li><a href="sobre.html">Sobre el proyecto</a></li>
+            <li><a href="legal.html">Legal</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <h1>Legal</h1>
+        <p><strong>ProyectM</strong> es un proyecto educativo y orientativo sobre el <strong>S&P Merval</strong>. Las proyecciones y análisis presentados se basan en datos históricos y cálculos técnicos/fundamentales, pero <strong>no garantizan resultados futuros</strong>. El mercado financiero es volátil, y cualquier decisión de inversión es tu responsabilidad.</p>
+        <p><strong>No ofrecemos asesoramiento financiero</strong>. ProyectM no recomienda comprar, vender ni mantener activos. Somos una herramienta informativa, no un servicio de inversión. Si buscás consejos financieros, consultá a un profesional autorizado.</p>
+        <p>Todo el contenido (textos, gráficos, proyecciones) está protegido por <strong>derechos de autor</strong>. No puede reproducirse, distribuirse ni modificarse sin nuestro permiso expreso. Los datos usados (Merval, dólares, inflación, Riesgo País) provienen de fuentes públicas y pueden tener errores o demoras; no nos hacemos responsables por su exactitud.</p>
+        <p>Al usar ProyectM, aceptás que lo hacés bajo tu propio riesgo. No nos responsabilizamos por pérdidas o decisiones basadas en nuestro contenido. Para dudas o contacto, seguinos en X. Estos términos pueden actualizarse sin aviso. #Merval #Inversiones</p>
+    </div>
+    <script>
+        document.querySelector('.menu-btn').addEventListener('click', () => {
+            document.getElementById('menu').classList.toggle('open');
+        });
+    </script>
+</body>
+</html>
