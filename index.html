@@ -11,9 +11,11 @@
         body { font-family: 'Roboto', sans-serif; background: #fff; color: #333; }
         header { position: fixed; top: 0; width: 100%; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; z-index: 1000; }
         .logo { font-size: 1.5em; font-weight: bold; }
+        .logo a { text-decoration: none; color: #333; }
         .menu-btn { font-size: 1.5em; cursor: pointer; }
-        .follow-x { font-size: 0.9em; color: #007bff; text-decoration: none; }
+        .follow-x { font-size: 1em; color: #007bff; text-decoration: none; margin-right: 10px; }
         .follow-x:hover { text-decoration: underline; }
+        .header-right { display: flex; align-items: center; }
         nav { position: fixed; top: 0; right: -250px; width: 250px; height: 100%; background: #f5f5f5; transition: right 0.3s; }
         nav.open { right: 0; }
         nav ul { list-style: none; padding: 60px 20px; }
@@ -40,8 +42,6 @@
         .analisis-completo { display: none; background: #f9f9f9; padding: 15px; border: 1px solid #ddd; border-radius: 5px; margin-top: 10px; }
         .toggle { cursor: pointer; color: #007bff; text-decoration: underline; font-weight: bold; }
         .toggle:hover { color: #0056b3; }
-        .util-btn { padding: 10px; background: #eee; border: none; border-radius: 5px; margin: 5px; cursor: pointer; }
-        .util-btn:hover { background: #ddd; }
         sup { font-size: 0.7em; }
         @media (max-width: 600px) { .content-wrapper { padding: 10px; } .tab { font-size: 0.9em; } }
     </style>
@@ -49,9 +49,9 @@
 </head>
 <body>
     <header>
-        <div class="logo">ProyectM</div>
-        <div>
-            <a href="https://x.com" class="follow-x">Seguinos en X</a>
+        <div class="logo"><a href="index.html">ProyectM</a></div>
+        <div class="header-right">
+            <a href="https://x.com/ProyectM_" class="follow-x">Seguinos en X</a>
             <span class="menu-btn">☰</span>
         </div>
     </header>
@@ -112,10 +112,8 @@
                     - Fibonacci: 61.8% 2,178,000.</p>
                     <p><strong>AF:</strong> CCL $1,343.41 (-1.34%), Oficial $1,097.50 (+0.07%), MEP $1,332.59 (-2.19%), Blue $1,375.00 (+0.73%), Riesgo País 874 (-2.78%), inflación marzo 3.7%.</p>
                 </div>
-                <div><button class="util-btn">Sí</button><button class="util-btn">No</button></div>
             </div>
-
-            <!-- 3 Días -->
+            <!-- Resto de pestañas (3D, 1S, 1M, 3M, 6M, 1Y) sin cambios -->
             <div id="3d" class="content">
                 <h2>Proyección 3 Días</h2>
                 <div class="probabilidades">
@@ -146,8 +144,6 @@
                     <p><strong>AF:</strong> CCL ~$1,340, Oficial ~$1,100, MEP ~$1,330, Blue ~$1,380, Riesgo País ~870, inflación marzo 3.7%.</p>
                 </div>
             </div>
-
-            <!-- 1 Semana -->
             <div id="1s" class="content">
                 <h2>Proyección 1 Semana</h2>
                 <div class="probabilidades">
@@ -178,8 +174,6 @@
                     <p><strong>AF:</strong> CCL ~$1,350, Oficial ~$1,105, MEP ~$1,340, Blue ~$1,390, Riesgo País ~860, inflación marzo 3.7%.</p>
                 </div>
             </div>
-
-            <!-- 1 Mes -->
             <div id="1m" class="content">
                 <h2>Proyección 1 Mes</h2>
                 <div class="probabilidades">
@@ -210,8 +204,6 @@
                     <p><strong>AF:</strong> CCL ~$1,380, Oficial ~$1,120, MEP ~$1,360, Blue ~$1,410, Riesgo País ~850, inflación marzo 3.7%.</p>
                 </div>
             </div>
-
-            <!-- 3 Meses -->
             <div id="3m" class="content">
                 <h2>Proyección 3 Meses</h2>
                 <div class="probabilidades">
@@ -242,8 +234,6 @@
                     <p><strong>AF:</strong> CCL ~$1,450, Oficial ~$1,140, MEP ~$1,430, Blue ~$1,460, Riesgo País ~840, inflación proyectada ~10%.</p>
                 </div>
             </div>
-
-            <!-- 6 Meses -->
             <div id="6m" class="content">
                 <h2>Proyección 6 Meses</h2>
                 <div class="probabilidades">
@@ -274,8 +264,6 @@
                     <p><strong>AF:</strong> CCL ~$1,550, Oficial ~$1,170, MEP ~$1,530, Blue ~$1,560, Riesgo País ~830, inflación proyectada ~15%.</p>
                 </div>
             </div>
-
-            <!-- 1 Año -->
             <div id="1y" class="content">
                 <h2>Proyección 1 Año</h2>
                 <div class="probabilidades">
@@ -308,7 +296,6 @@
             </div>
         </div>
     </div>
-
     <script>
         function showTab(tabId) {
             document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
