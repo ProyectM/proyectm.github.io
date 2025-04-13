@@ -5,18 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Conocé la historia detrás de ProyectM, un proyecto para acercar el S&P Merval a todos con análisis simple.">
     <meta name="keywords" content="sobre ProyectM, proyecto Merval, análisis mercado Argentina">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="ProyectM">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://proyectm.github.io/sobre.html">
+    <meta property="og:title" content="Sobre el proyecto - ProyectM">
+    <meta property="og:description" content="Conocé la historia detrás de ProyectM, un proyecto para acercar el S&P Merval a todos con análisis simple.">
+    <meta property="og:image" content="https://proyectm.github.io/og-image.png">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sobre el proyecto - ProyectM">
+    <meta name="twitter:description" content="Conocé la historia detrás de ProyectM, un proyecto para acercar el S&P Merval a todos con análisis simple.">
+    <meta name="twitter:image" content="https://proyectm.github.io/og-image.png">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <title>Sobre el proyecto - ProyectM</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NVB3CMY2Q1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-NVB3CMY2Q1');
+    </script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Roboto', sans-serif; background: #fff; color: #333; }
-        header { position: fixed; top: 0; width: 100%; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.5em; font-weight: bold; }
+        header { position: fixed; top: 0; width: 100%; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; z-index: 1000; }
+        .logo { font-size: 1.5em; font-weight: bold; display: flex; align-items: center; }
+        .logo img { width: 30px; height: 30px; margin-right: 10px; }
         .logo a { text-decoration: none; color: #333; }
         .menu-btn { font-size: 1.5em; cursor: pointer; }
         .follow-x { font-size: 1em; color: #007bff; text-decoration: none; margin-right: 10px; }
         .follow-x:hover { text-decoration: underline; }
         .header-right { display: flex; align-items: center; }
-        nav { position: fixed; top: 0; right: -250px; width: 250px; height: 100%; background: #f5f5f5; transition: right 0.3s; }
+        nav { position: fixed; top: 0; right: -250px; width: 250px; height: 100%; background: #f5f5f5; transition: right 0.3s; z-index: 999; }
         nav.open { right: 0; }
         nav ul { list-style: none; padding: 60px 20px; }
         nav li { margin: 20px 0; }
@@ -25,12 +49,13 @@
         .content { margin-top: 60px; padding: 20px; max-width: 800px; margin-left: auto; margin-right: auto; }
         h1 { font-size: 1.8em; margin-bottom: 20px; }
         p { font-size: 1.1em; line-height: 1.6; margin-bottom: 20px; }
+        @media (max-width: 600px) { .content { padding: 10px; } }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <div class="logo"><a href="index.html">ProyectM</a></div>
+        <div class="logo"><img src="logo.png" alt="ProyectM Logo"><a href="index.html">ProyectM</a></div>
         <div class="header-right">
             <a href="https://x.com/ProyectM_" class="follow-x">Seguinos en X</a>
             <span class="menu-btn">☰</span>

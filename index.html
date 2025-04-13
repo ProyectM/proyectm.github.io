@@ -5,18 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Proyecciones del S&P Merval con análisis simple y datos reales. Subas, bajas o lateral, todo claro para vos.">
     <meta name="keywords" content="Merval, proyecciones Merval, análisis mercado Argentina, inversiones">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="ProyectM">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://proyectm.github.io/">
+    <meta property="og:title" content="ProyectM - S&P Merval">
+    <meta property="og:description" content="Proyecciones del S&P Merval: subas, bajas o lateral. Análisis claro y datos reales. ¡Seguinos!">
+    <meta property="og:image" content="https://proyectm.github.io/og-image.png">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ProyectM - S&P Merval">
+    <meta name="twitter:description" content="Proyecciones del S&P Merval: subas, bajas o lateral. Análisis claro y datos reales. ¡Seguinos!">
+    <meta name="twitter:image" content="https://proyectm.github.io/og-image.png">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <title>ProyectM - S&P Merval</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NVB3CMY2Q1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-NVB3CMY2Q1');
+    </script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Roboto', sans-serif; background: #fff; color: #333; }
         header { position: fixed; top: 0; width: 100%; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; z-index: 1000; }
-        .logo { font-size: 1.5em; font-weight: bold; }
+        .logo { font-size: 1.5em; font-weight: bold; display: flex; align-items: center; }
+        .logo img { width: 30px; height: 30px; margin-right: 10px; }
         .logo a { text-decoration: none; color: #333; }
         .menu-btn { font-size: 1.5em; cursor: pointer; }
         .follow-x { font-size: 1em; color: #007bff; text-decoration: none; margin-right: 10px; }
         .follow-x:hover { text-decoration: underline; }
         .header-right { display: flex; align-items: center; }
-        nav { position: fixed; top: 0; right: -250px; width: 250px; height: 100%; background: #f5f5f5; transition: right 0.3s; }
+        nav { position: fixed; top: 0; right: -250px; width: 250px; height: 100%; background: #f5f5f5; transition: right 0.3s; z-index: 999; }
         nav.open { right: 0; }
         nav ul { list-style: none; padding: 60px 20px; }
         nav li { margin: 20px 0; }
@@ -24,8 +48,8 @@
         nav a:hover { color: #007bff; }
         .content-wrapper { margin-top: 60px; padding: 20px; max-width: 800px; margin-left: auto; margin-right: auto; }
         h1 { font-size: 1.8em; margin-bottom: 20px; }
-        .tabs { display: flex; flex-wrap: wrap; margin-bottom: 20px; }
-        .tab { padding: 10px 15px; cursor: pointer; background: #eee; margin: 0 5px 5px 0; border-radius: 5px; transition: background 0.2s; }
+        .tabs { display: flex; flex-wrap: nowrap; margin-bottom: 20px; overflow-x: auto; }
+        .tab { padding: 10px 15px; cursor: pointer; background: #eee; margin: 0 5px 5px 0; border-radius: 5px; transition: background 0.2s; white-space: nowrap; }
         .tab:hover { background: #ddd; }
         .tab.active { background: #007bff; color: #fff; }
         .content { display: none; }
@@ -35,11 +59,14 @@
         .lateral { background: #ff9800; min-width: 40px; }
         .bajista { background: #f44336; min-width: 30px; }
         .escenario { text-align: center; color: #fff; line-height: 40px; font-weight: bold; }
-        .leyenda { display: flex; justify-content: space-around; margin-bottom: 20px; }
-        .leyenda div { display: flex; align-items: center; font-size: 0.9em; }
+        .leyenda { display: flex; justify-content: flex-start; margin-bottom: 20px; }
+        .leyenda div { display: flex; align-items: center; font-size: 0.9em; margin-right: 15px; }
         .cuadrado { width: 15px; height: 15px; margin-right: 5px; }
         .sintesis, .efectividad, .aviso { margin-bottom: 20px; font-size: 1.1em; line-height: 1.4; }
+        h2 { margin-bottom: 20px; }
+        .efectividad { margin-top: 20px; }
         .analisis-completo { display: none; background: #f9f9f9; padding: 15px; border: 1px solid #ddd; border-radius: 5px; margin-top: 10px; }
+        .analisis-completo p { margin-bottom: 15px; }
         .toggle { cursor: pointer; color: #007bff; text-decoration: underline; font-weight: bold; }
         .toggle:hover { color: #0056b3; }
         sup { font-size: 0.7em; }
@@ -49,7 +76,7 @@
 </head>
 <body>
     <header>
-        <div class="logo"><a href="index.html">ProyectM</a></div>
+        <div class="logo"><img src="logo.png" alt="ProyectM Logo"><a href="index.html">ProyectM</a></div>
         <div class="header-right">
             <a href="https://x.com/ProyectM_" class="follow-x">Seguinos en X</a>
             <span class="menu-btn">☰</span>
@@ -113,7 +140,7 @@
                     <p><strong>AF:</strong> CCL $1,343.41 (-1.34%), Oficial $1,097.50 (+0.07%), MEP $1,332.59 (-2.19%), Blue $1,375.00 (+0.73%), Riesgo País 874 (-2.78%), inflación marzo 3.7%.</p>
                 </div>
             </div>
-            <!-- Resto de pestañas (3D, 1S, 1M, 3M, 6M, 1Y) sin cambios -->
+            <!-- 3 Días -->
             <div id="3d" class="content">
                 <h2>Proyección 3 Días</h2>
                 <div class="probabilidades">
@@ -144,6 +171,7 @@
                     <p><strong>AF:</strong> CCL ~$1,340, Oficial ~$1,100, MEP ~$1,330, Blue ~$1,380, Riesgo País ~870, inflación marzo 3.7%.</p>
                 </div>
             </div>
+            <!-- 1 Semana -->
             <div id="1s" class="content">
                 <h2>Proyección 1 Semana</h2>
                 <div class="probabilidades">
@@ -174,6 +202,7 @@
                     <p><strong>AF:</strong> CCL ~$1,350, Oficial ~$1,105, MEP ~$1,340, Blue ~$1,390, Riesgo País ~860, inflación marzo 3.7%.</p>
                 </div>
             </div>
+            <!-- 1 Mes -->
             <div id="1m" class="content">
                 <h2>Proyección 1 Mes</h2>
                 <div class="probabilidades">
@@ -204,6 +233,7 @@
                     <p><strong>AF:</strong> CCL ~$1,380, Oficial ~$1,120, MEP ~$1,360, Blue ~$1,410, Riesgo País ~850, inflación marzo 3.7%.</p>
                 </div>
             </div>
+            <!-- 3 Meses -->
             <div id="3m" class="content">
                 <h2>Proyección 3 Meses</h2>
                 <div class="probabilidades">
@@ -234,6 +264,7 @@
                     <p><strong>AF:</strong> CCL ~$1,450, Oficial ~$1,140, MEP ~$1,430, Blue ~$1,460, Riesgo País ~840, inflación proyectada ~10%.</p>
                 </div>
             </div>
+            <!-- 6 Meses -->
             <div id="6m" class="content">
                 <h2>Proyección 6 Meses</h2>
                 <div class="probabilidades">
@@ -264,6 +295,7 @@
                     <p><strong>AF:</strong> CCL ~$1,550, Oficial ~$1,170, MEP ~$1,530, Blue ~$1,560, Riesgo País ~830, inflación proyectada ~15%.</p>
                 </div>
             </div>
+            <!-- 1 Año -->
             <div id="1y" class="content">
                 <h2>Proyección 1 Año</h2>
                 <div class="probabilidades">
