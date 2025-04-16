@@ -1,114 +1,343 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Proyecciones del S&P Merval con análisis simple y datos reales. Subas, bajas o lateral, todo claro para vos.">
-    <meta name="keywords" content="Merval, proyecciones Merval, análisis mercado Argentina, inversiones">
-    <meta name="robots" content="index, follow">
-    <meta name="author" content="ProyectM">
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://proyectm.github.io/">
-    <meta property="og:title" content="ProyectM - S&P Merval">
-    <meta property="og:description" content="Proyecciones del S&P Merval: subas, bajas o lateral. Análisis claro y datos reales. ¡Seguinos!">
-    <meta property="og:image" content="https://proyectm.github.io/og-image.png">
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="ProyectM - S&P Merval">
-    <meta name="twitter:description" content="Proyecciones del S&P Merval: subas, bajas o lateral. Análisis claro y datos reales. ¡Seguinos!">
-    <meta name="twitter:image" content="https://proyectm.github.io/og-image.png">
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <title>ProyectM - S&P Merval</title>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NVB3CMY2Q1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-NVB3CMY2Q1');
-    </script>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Roboto', sans-serif; background: #fff; color: #333; }
-        header { position: fixed; top: 0; width: 100%; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; z-index: 1000; }
-        .logo { font-size: 1.5em; font-weight: bold; display: flex; align-items: center; }
-        .logo img { width: 30px; height: 30px; margin-right: 10px; }
-        .logo a { text-decoration: none; color: #333; }
-        .menu-btn { font-size: 1.5em; cursor: pointer; }
-        .follow-x { font-size: 1em; color: #007bff; text-decoration: none; margin-right: 10px; }
-        .follow-x:hover { text-decoration: underline; }
-        .header-right { display: flex; align-items: center; }
-        nav { position: fixed; top: 0; right: -250px; width: 250px; height: 100%; background: #f5f5f5; transition: right 0.3s; z-index: 999; }
-        nav.open { right: 0; }
-        nav ul { list-style: none; padding: 60px 20px; }
-        nav li { margin: 20px 0; }
-        nav a { color: #333; text-decoration: none; font-size: 1.1em; }
-        nav a:hover { color: #007bff; }
-        .content-wrapper { margin-top: 60px; padding: 20px; max-width: 800px; margin-left: auto; margin-right: auto; }
-        h1 { font-size: 1.8em; margin-bottom: 20px; }
-        .tabs { display: flex; flex-wrap: nowrap; margin-bottom: 20px; overflow-x: auto; }
-        .tab { padding: 10px 15px; cursor: pointer; background: #eee; margin: 0 5px 5px 0; border-radius: 5px; transition: background 0.2s; white-space: nowrap; }
-        .tab:hover { background: #ddd; }
-        .tab.active { background: #007bff; color: #fff; }
-        .content { display: none; }
-        .content.active { display: block; }
-        .probabilidades { display: flex; width: 100%; height: 40px; margin-bottom: 10px; overflow: hidden; }
-        .alcista { background: #00cc00; min-width: 60px; }
-        .lateral { background: #ff9800; min-width: 40px; }
-        .bajista { background: #f44336; min-width: 30px; }
-        .escenario { text-align: center; color: #fff; line-height: 40px; font-weight: bold; }
-        .leyenda { display: flex; justify-content: flex-start; margin-bottom: 20px; }
-        .leyenda div { display: flex; align-items: center; font-size: 0.9em; margin-right: 15px; }
-        .cuadrado { width: 15px; height: 15px; margin-right: 5px; }
-        .sintesis, .efectividad, .aviso { margin-bottom: 20px; font-size: 1.1em; line-height: 1.4; }
-        h2 { margin-bottom: 20px; }
-        .efectividad { margin-top: 20px; }
-        .analisis-completo { display: none; background: #f9f9f9; padding: 15px; border: 1px solid #ddd; border-radius: 5px; margin-top: 10px; }
-        .analisis-completo p { margin-bottom: 15px; }
-        .toggle { cursor: pointer; color: #007bff; text-decoration: underline; font-weight: bold; }
-        .toggle:hover { color: #0056b3; }
-        sup { font-size: 0.7em; }
-        @media (max-width: 600px) { .content-wrapper { padding: 10px; } .tab { font-size: 0.9em; } }
-    </style>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Proyecciones del S&P Merval con análisis simple y datos reales.">
+<meta name="keywords" content="Merval, proyecciones Merval, análisis mercado Argentina, inversiones">
+<meta name="robots" content="index, follow">
+<meta name="author" content="ProyectM">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://proyectm.github.io/">
+<meta property="og:title" content="ProyectM - S&P Merval">
+<meta property="og:description" content="Proyecciones del S&P Merval: subas, bajas o lateral. ¡Seguinos!">
+<meta property="og:image" content="https://proyectm.github.io/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ProyectM - S&P Merval">
+<meta name="twitter:description" content="Proyecciones del S&P Merval: subas, bajas o lateral. ¡Seguinos!">
+<meta name="twitter:image" content="https://proyectm.github.io/og-image.png">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<title>ProyectM - S&P Merval</title>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NVB3CMY2Q1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-NVB3CMY2Q1');
+</script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Roboto', sans-serif; background: #fff; color: #333; }
+header { position: fixed; top: 0; width: 100%; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; z-index: 1000; }
+.logo { font-size: 1.5em; font-weight: bold; display: flex; align-items: center; }
+.logo img { width: 30px; height: 30px; margin-right: 10px; }
+.logo a { text-decoration: none; color: #333; }
+.menu-btn { font-size: 1.5em; cursor: pointer; }
+.follow-x { font-size: 1em; color: #007bff; text-decoration: none; margin-right: 10px; }
+.follow-x:hover { text-decoration: underline; }
+.header-right { display: flex; align-items: center; }
+nav { position: fixed; top: 0; right: -250px; width: 250px; height: 100%; background: #f5f5f5; transition: right 0.3s; z-index: 999; }
+nav.open { right: 0; }
+nav ul { list-style: none; padding: 60px 20px; }
+nav li { margin: 20px 0; }
+nav a { color: #333; text-decoration: none; font-size: 1.1em; }
+nav a:hover { color: #007bff; }
+.content-wrapper { margin-top: 60px; padding: 20px; max-width: 800px; margin-left: auto; margin-right: auto; }
+h1 { font-size: 1.8em; margin-bottom: 20px; }
+.tabs { display: flex; flex-wrap: nowrap; margin-bottom: 20px; overflow-x: auto; }
+.tab { padding: 10px 15px; cursor: pointer; background: #eee; margin: 0 5px 5px 0; border-radius: 5px; transition: background 0.2s; white-space: nowrap; }
+.tab:hover { background: #ddd; }
+.tab.active { background: #007bff; color: #fff; }
+.content { display: none; }
+.content.active { display: block; }
+.probabilidades { display: flex; width: 100%; height: 40px; margin-bottom: 10px; overflow: hidden; }
+.alcista { background: #00cc00; min-width: 60px; }
+.lateral { background: #ff9800; min-width: 40px; }
+.bajista { background: #f44336; min-width: 30px; }
+.escenario { text-align: center; color: #fff; line-height: 40px; font-weight: bold; }
+.leyenda { display: flex; justify-content: flex-start; margin-bottom: 20px; }
+.leyenda div { display: flex; align-items: center; font-size: 0.9em; margin-right: 15px; }
+.cuadrado { width: 15px; height: 15px; margin-right: 5px; }
+.sintesis, .efectividad, .aviso { margin-bottom: 20px; font-size: 1.1em; line-height: 1.4; }
+h2 { margin-bottom: 20px; }
+.efectividad { margin-top: 20px; }
+.analisis-completo { display: none; background: #f9f9f9; padding: 15px; border: 1px solid #ddd; border-radius: 5px; margin-top: 10px; }
+.analisis-completo p { margin-bottom: 15px; }
+.toggle { cursor: pointer; color: #007bff; text-decoration: underline; font-weight: bold; }
+.toggle:hover { color: #0056b3; }
+sup { font-size: 0.7em; }
+@media (max-width: 600px) { .content-wrapper { padding: 10px; } .tab { font-size: 0.9em; } }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="logo"><img src="logo.png" alt="ProyectM Logo"><a href="index.html">ProyectM</a></div>
-        <div class="header-right">
-            <a href="https://x.com/ProyectM_" class="follow-x">Seguinos en X</a>
-            <span class="menu-btn">☰</span>
-        </div>
-    </header>
-    <nav id="menu">
-        <ul>
-            <li><a href="que-es.html">¿Qué es ProyectM?</a></li>
-            <li><a href="como-usarlo.html">Cómo usarlo</a></li>
-            <li><a href="indicadores.html">Indicadores básicos</a></li>
-            <li><a href="sobre.html">Sobre el proyecto</a></li>
-            <li><a href="legal.html">Legal</a></li>
-        </ul>
-    </nav>
-    <div class="content-wrapper">
-        <h1>ProyectM - S&P Merval</h1>
-En mantenimiento...
-    </div>
-    <script>
-        function showTab(tabId) {
-            document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
-            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-            document.getElementById(tabId).classList.add('active');
-            document.querySelector(`[onclick="showTab('${tabId}')"]`).classList.add('active');
-        }
-        function toggleSection(id) {
-            const elem = document.getElementById(id);
-            elem.style.display = elem.style.display === 'block' ? 'none' : 'block';
-        }
-        document.querySelector('.menu-btn').addEventListener('click', () => {
-            document.getElementById('menu').classList.toggle('open');
-        });
-    </script>
+<header>
+<div class="logo"><img src="logo.png" alt="ProyectM Logo"><a href="index.html">ProyectM</a></div>
+<div class="header-right">
+<a href="https://x.com/ProyectM_" class="follow-x">Seguinos en X</a>
+<span class="menu-btn">☰</span>
+</div>
+</header>
+<nav id="menu">
+<ul>
+<li><a href="que-es.html">¿Qué es ProyectM?</a></li>
+<li><a href="como-usarlo.html">Cómo usarlo</a></li>
+<li><a href="indicadores.html">Indicadores básicos</a></li>
+<li><a href="sobre.html">Sobre el proyecto</a></li>
+<li><a href="legal.html">Legal</a></li>
+</ul>
+</nav>
+<div class="content-wrapper">
+<h1>ProyectM - S&P Merval</h1>
+<div class="tabs">
+<div class="tab active" onclick="showTab('dia')">Día</div>
+<div class="tab" onclick="showTab('3d')">3D</div>
+<div class="tab" onclick="showTab('1s')">1S</div>
+<div class="tab" onclick="showTab('1m')">1M</div>
+<div class="tab" onclick="showTab('3m')">3M</div>
+<div class="tab" onclick="showTab('6m')">6M</div>
+<div class="tab" onclick="showTab('1y')">1Y</div>
+</div>
+<div id="contents">
+<!-- Día -->
+<div id="dia" class="content active">
+<h2>Proyección 16 de abril 2025</h2>
+<div class="probabilidades">
+<div class="alcista escenario" style="flex: 40">40<sup>%</sup></div>
+<div class="lateral escenario" style="flex: 40">40<sup>%</sup></div>
+<div class="bajista escenario" style="flex: 20">20<sup>%</sup></div>
+</div>
+<div class="leyenda">
+<div><span class="cuadrado" style="background: #00cc00;"></span>Sube</div>
+<div><span class="cuadrado" style="background: #ff9800;"></span>Se mantiene</div>
+<div><span class="cuadrado" style="background: #f44336;"></span>Baja</div>
+</div>
+<div class="sintesis">
+El 16 podría subir a 2,375,651 (rebote técnico), o consolidar en 2,222,436-2,346,122, o caer a 2,176,751 (presión inflacionaria).
+</div>
+<div class="efectividad">
+<strong>Efectividad 15/4:</strong> Proyectado 2,444,198-2,522,198 (50%) vs. 2,284,279 real. Acierto parcial en rango bajista (7.5%).<br><br>
+<strong>Efectividad acumulada:</strong> 67.38% (1/1/2025 al 15/4/2025, 103 días).
+</div>
+<div class="aviso">Datos al 15/4, volumen sin datos.</div>
+<div class="toggle" onclick="toggleSection('analisis-dia')">Mostrar análisis completo</div>
+<div id="analisis-dia" class="analisis-completo">
+<p><strong>Rangos:</strong><br>
+- Alcista (40%): 2,336,651-2,414,651.<br>
+- Lateral (40%): 2,222,436-2,346,122.<br>
+- Bajista (20%): 2,176,751-2,254,751.</p>
+<p><strong>AT:</strong><br>
+- MM200: 2,050,000.<br>
+- MM50: 2,150,000.<br>
+- RSI: 60.<br>
+- MACD: 10,000, señal 12,000.<br>
+- Bollinger: Media 2,260,000, +2σ 2,460,000, -2σ 2,060,000.<br>
+- Fibonacci: 61.8% 2,300,000.</p>
+<p><strong>AF:</strong> CCL $1,249.43 (-1.27%), Oficial $1,230.00 (0%), MEP $1,238.81 (-1.24%), Blue $1,285.00 (0%), Riesgo País 725 (-19.1%), inflación marzo 3.7%, acumulada 11.7%.</p>
+</div>
+</div>
+<!-- 3 Días -->
+<div id="3d" class="content">
+<h2>Proyección 3 Días</h2>
+<div class="probabilidades">
+<div class="alcista escenario" style="flex: 40">40<sup>%</sup></div>
+<div class="lateral escenario" style="flex: 40">40<sup>%</sup></div>
+<div class="bajista escenario" style="flex: 20">20<sup>%</sup></div>
+</div>
+<div class="leyenda">
+<div><span class="cuadrado" style="background: #00cc00;"></span>Sube</div>
+<div><span class="cuadrado" style="background: #ff9800;"></span>Se mantiene</div>
+<div><span class="cuadrado" style="background: #f44336;"></span>Baja</div>
+</div>
+<div class="sintesis">
+En 3 días podría subir a 2,398,493 o consolidar en 2,238,594-2,329,965, o caer a 2,192,908.
+</div>
+<div class="aviso">Basado en 2020-2025 + 15/4.</div>
+<div class="toggle" onclick="toggleSection('analisis-3d')">Mostrar análisis completo</div>
+<div id="analisis-3d" class="analisis-completo">
+<p><strong>Rangos:</strong><br>
+- Alcista (40%): 2,359,493-2,437,493.<br>
+- Lateral (40%): 2,238,594-2,329,965.<br>
+- Bajista (20%): 2,192,908-2,231,908.</p>
+<p><strong>AT:</strong><br>
+- MM50: 2,150,000.<br>
+- RSI: ~55.<br>
+- MACD: Cerca de cruce alcista.<br>
+- Bollinger: +2σ 2,460,000.</p>
+<p><strong>AF:</strong> CCL $1,249.43, Oficial $1,230.00, MEP $1,238.81, Blue $1,285.00, Riesgo País 725, inflación marzo 3.7%, acumulada 11.7%.</p>
+</div>
+</div>
+<!-- 1 Semana -->
+<div id="1s" class="content">
+<h2>Proyección 1 Semana</h2>
+<div class="probabilidades">
+<div class="alcista escenario" style="flex: 40">40<sup>%</sup></div>
+<div class="lateral escenario" style="flex: 35">35<sup>%</sup></div>
+<div class="bajista escenario" style="flex: 25">25<sup>%</sup></div>
+</div>
+<div class="leyenda">
+<div><span class="cuadrado" style="background: #00cc00;"></span>Sube</div>
+<div><span class="cuadrado" style="background: #ff9800;"></span>Se mantiene</div>
+<div><span class="cuadrado" style="background: #f44336;"></span>Baja</div>
+</div>
+<div class="sintesis">
+En 1 semana podría subir a 2,421,336 o mantenerse en 2,215,751-2,352,808, o caer a 2,169,065.
+</div>
+<div class="aviso">Basado en 2020-2025 + 15/4.</div>
+<div class="toggle" onclick="toggleSection('analisis-1s')">Mostrar análisis completo</div>
+<div id="analisis-1s" class="analisis-completo">
+<p><strong>Rangos:</strong><br>
+- Alcista (40%): 2,382,336-2,460,336.<br>
+- Lateral (35%): 2,215,751-2,352,808.<br>
+- Bajista (25%): 2,169,065-2,208,065.</p>
+<p><strong>AT:</strong><br>
+- MM50: 2,150,000.<br>
+- RSI: ~55.<br>
+- MACD: Posible cruce alcista.<br>
+- Bollinger: +2σ 2,460,000.</p>
+<p><strong>AF:</strong> CCL $1,249.43, Oficial $1,230.00, MEP $1,238.81, Blue $1,285.00, Riesgo País 725, inflación marzo 3.7%, acumulada 11.7%.</p>
+</div>
+</div>
+<!-- 1 Mes -->
+<div id="1m" class="content">
+<h2>Proyección 1 Mes</h2>
+<div class="probabilidades">
+<div class="alcista escenario" style="flex: 45">45<sup>%</sup></div>
+<div class="lateral escenario" style="flex: 35">35<sup>%</sup></div>
+<div class="bajista escenario" style="flex: 20">20<sup>%</sup></div>
+</div>
+<div class="leyenda">
+<div><span class="cuadrado" style="background: #00cc00;"></span>Sube</div>
+<div><span class="cuadrado" style="background: #ff9800;"></span>Se mantiene</div>
+<div><span class="cuadrado" style="background: #f44336;"></span>Baja</div>
+</div>
+<div class="sintesis">
+En 1 mes podría subir a 2,512,707 o mantenerse en 2,192,908-2,375,651, o caer a 2,146,222.
+</div>
+<div class="aviso">Basado en 2020-2025 + 15/4.</div>
+<div class="toggle" onclick="toggleSection('analisis-1m')">Mostrar análisis completo</div>
+<div id="analisis-1m" class="analisis-completo">
+<p><strong>Rangos:</strong><br>
+- Alcista (45%): 2,473,707-2,551,707.<br>
+- Lateral (35%): 2,192,908-2,375,651.<br>
+- Bajista (20%): 2,146,222-2,185,222.</p>
+<p><strong>AT:</strong><br>
+- MM50: 2,150,000.<br>
+- RSI: ~50.<br>
+- MACD: Posible cruce alcista.<br>
+- Bollinger: +2σ 2,500,000.</p>
+<p><strong>AF:</strong> CCL ~$1,255.68, Oficial ~$1,242.30, MEP ~$1,245.00, Blue ~$1,291.43, Riesgo País ~710, inflación acumulada ~15.2%.</p>
+</div>
+</div>
+<!-- 3 Meses -->
+<div id="3m" class="content">
+<h2>Proyección 3 Meses</h2>
+<div class="probabilidades">
+<div class="alcista escenario" style="flex: 45">45<sup>%</sup></div>
+<div class="lateral escenario" style="flex: 35">35<sup>%</sup></div>
+<div class="bajista escenario" style="flex: 20">20<sup>%</sup></div>
+</div>
+<div class="leyenda">
+<div><span class="cuadrado" style="background: #00cc00;"></span>Sube</div>
+<div><span class="cuadrado" style="background: #ff9800;"></span>Se mantiene</div>
+<div><span class="cuadrado" style="background: #f44336;"></span>Baja</div>
+</div>
+<div class="sintesis">
+En 3 meses podría subir a 2,627,921 o mantenerse en 2,169,065-2,399,493, o caer a 2,100,537.
+</div>
+<div class="aviso">Basado en 2020-2025 + 15/4.</div>
+<div class="toggle" onclick="toggleSection('analisis-3m')">Mostrar análisis completo</div>
+<div id="analisis-3m" class="analisis-completo">
+<p><strong>Rangos:</strong><br>
+- Alcista (45%): 2,588,921-2,666,921.<br>
+- Lateral (35%): 2,169,065-2,399,493.<br>
+- Bajista (20%): 2,100,537-2,139,537.</p>
+<p><strong>AT:</strong><br>
+- MM200: 2,050,000.<br>
+- RSI: ~50.<br>
+- MACD: Alcista sostenido.<br>
+- Bollinger: +2σ 2,600,000.</p>
+<p><strong>AF:</strong> CCL ~$1,268.37, Oficial ~$1,267.46, MEP ~$1,257.50, Blue ~$1,304.17, Riesgo País ~680, inflación acumulada ~21.7%.</p>
+</div>
+</div>
+<!-- 6 Meses -->
+<div id="6m" class="content">
+<h2>Proyección 6 Meses</h2>
+<div class="probabilidades">
+<div class="alcista escenario" style="flex: 50">50<sup>%</sup></div>
+<div class="lateral escenario" style="flex: 30">30<sup>%</sup></div>
+<div class="bajista escenario" style="flex: 20">20<sup>%</sup></div>
+</div>
+<div class="leyenda">
+<div><span class="cuadrado" style="background: #00cc00;"></span>Sube</div>
+<div><span class="cuadrado" style="background: #ff9800;"></span>Se mantiene</div>
+<div><span class="cuadrado" style="background: #f44336;"></span>Baja</div>
+</div>
+<div class="sintesis">
+En 6 meses podría llegar a 2,742,135 o quedarse en 2,146,222-2,423,336, o caer a 2,077,694.
+</div>
+<div class="aviso">Basado en 2020-2025 + 15/4.</div>
+<div class="toggle" onclick="toggleSection('analisis-6m')">Mostrar análisis completo</div>
+<div id="analisis-6m" class="analisis-completo">
+<p><strong>Rangos:</strong><br>
+- Alcista (50%): 2,703,135-2,781,135.<br>
+- Lateral (30%): 2,146,222-2,423,336.<br>
+- Bajista (20%): 2,077,694-2,116,694.</p>
+<p><strong>AT:</strong><br>
+- MM200: 2,050,000.<br>
+- RSI: ~50.<br>
+- MACD: Alcista sostenido.<br>
+- Bollinger: +2σ 2,700,000.</p>
+<p><strong>AF:</strong> CCL ~$1,281.18, Oficial ~$1,306.49, MEP ~$1,270.14, Blue ~$1,317.01, Riesgo País ~650, inflación acumulada ~30.5%.</p>
+</div>
+</div>
+<!-- 1 Año -->
+<div id="1y" class="content">
+<h2>Proyección 1 Año</h2>
+<div class="probabilidades">
+<div class="alcista escenario" style="flex: 50">50<sup>%</sup></div>
+<div class="lateral escenario" style="flex: 30">30<sup>%</sup></div>
+<div class="bajista escenario" style="flex: 20">20<sup>%</sup></div>
+</div>
+<div class="leyenda">
+<div><span class="cuadrado" style="background: #00cc00;"></span>Sube</div>
+<div><span class="cuadrado" style="background: #ff9800;"></span>Se mantiene</div>
+<div><span class="cuadrado" style="background: #f44336;"></span>Baja</div>
+</div>
+<div class="sintesis">
+En 1 año podría llegar a 2,970,563 o quedarse en 2,123,380-2,445,179, o caer a 2,054,851.
+</div>
+<div class="aviso">Basado en 2020-2025 + 15/4.</div>
+<div class="toggle" onclick="toggleSection('analisis-1y')">Mostrar análisis completo</div>
+<div id="analisis-1y" class="analisis-completo">
+<p><strong>Rangos:</strong><br>
+- Alcista (50%): 2,931,563-3,009,563.<br>
+- Lateral (30%): 2,123,380-2,445,179.<br>
+- Bajista (20%): 2,054,851-2,093,851.</p>
+<p><strong>AT:</strong><br>
+- MM200: 2,050,000.<br>
+- RSI: ~55.<br>
+- MACD: Alcista fuerte.<br>
+- Bollinger: +2σ 3,100,000.</p>
+<p><strong>AF:</strong> CCL ~$1,313.20, Oficial ~$1,387.43, MEP ~$1,301.62, Blue ~$1,349.22, Riesgo País ~620, inflación acumulada ~45.0%.</p>
+</div>
+</div>
+</div>
+</div>
+<script>
+function showTab(tabId) {
+document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
+document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+document.getElementById(tabId).classList.add('active');
+document.querySelector(`[onclick="showTab('${tabId}')"]`).classList.add('active');
+}
+function toggleSection(id) {
+const elem = document.getElementById(id);
+elem.style.display = elem.style.display === 'block' ? 'none' : 'block';
+}
+document.querySelector('.menu-btn').addEventListener('click', () => {
+document.getElementById('menu').classList.toggle('open');
+});
+</script>
 </body>
 </html>
